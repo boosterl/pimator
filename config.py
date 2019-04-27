@@ -1,10 +1,11 @@
 import json
+from collections import OrderedDict
 
 
 class Config:
     def __init__(self):
         with open('config.json') as config_file:
-            config = json.load(config_file)
+            config = json.load(config_file, object_pairs_hook=OrderedDict)
 
         self._short_delay = config['short_delay']
         self._long_delay = config['long_delay']

@@ -8,79 +8,39 @@
 <body>
 	<!-- page content -->
 	<table>
-	<tr>
-		<th>Outlet</th>
-		<th></th>
-		<th></th>
-	</tr>
-	<tr>
-		<td>1</td>
-		<td>
-			<form action="/outlet/1/on" method="post">
-		    		<input type="submit" value="On" />
-			</form>
-		</td>
-		<td>
-			<form action="/outlet/1/off" method="post">
-		    		<input type="submit" value="Off" />
-			</form>
-		</td>
-	</tr>
-	<tr>
-		<td>2</td>
-		<td>
-			<form action="/outlet/2/on" method="post">
-		    		<input type="submit" value="On" />
-			</form>
-		</td>
-		<td>
-			<form action="/outlet/2/off" method="post">
-		    		<input type="submit" value="Off" />
-			</form>
-		</td>
-	</tr>
-	<tr>
-		<td>3</td>
-		<td>
-			<form action="/outlet/3/on" method="post">
-		    		<input type="submit" value="On" />
-			</form>
-		</td>
-		<td>
-			<form action="/outlet/3/off" method="post">
-		    		<input type="submit" value="Off" />
-			</form>
-		</td>
-	</tr>
-	<tr>
-		<td>4</td>
-		<td>
-			<form action="/outlet/4/on" method="post">
-		    		<input type="submit" value="On" />
-			</form>
-		</td>
-		<td>
-			<form action="/outlet/4/off" method="post">
-		    		<input type="submit" value="Off" />
-			</form>
-		</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>
-			<form action="/outlet/all/on" method="post">
-		    		<input type="submit" value="All On" />
-			</form>
-		</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>
-			<form action="/outlet/all/off" method="post">
-		    		<input type="submit" value="All Off" />
-			</form>
-		</td>
-	</tr>
+    <tr>
+      <th>Outlet</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for outlet in codes %}
+    <tr>
+      <td>{{ outlet }}</td>
+      {% for state in codes[outlet] %}
+      <td>
+        <form action="/outlet/{{ outlet }}/{{ state }}" method="post">
+              <input type="submit" value="{{ state.capitalize() }}" />
+        </form>
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+    <tr>
+      <td></td>
+      <td>
+        <form action="/outlet/all/on" method="post">
+              <input type="submit" value="All On" />
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <form action="/outlet/all/off" method="post">
+              <input type="submit" value="All Off" />
+        </form>
+      </td>
+    </tr>
 	</table>
 </body>
 </html>

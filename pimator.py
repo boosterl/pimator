@@ -10,7 +10,7 @@ transmitter = Transmitter(config)
 
 @app.route('/')
 def index_pimator():
-    return render_template('index.html')
+    return render_template('index.html', codes=config.codes)
 
 
 @app.route('/outlet/<string:outlet>/<string:state>', methods=['POST'])
