@@ -13,6 +13,7 @@ class Config:
         self._codes = config['codes']
         self._num_attempts = config['attempts']
         self._transmit_pin = config['transmit_pin']
+        self._transmit_pin = config['application_prefix']
 
     @property
     def short_delay(self):
@@ -37,3 +38,7 @@ class Config:
     @property
     def transmit_pin(self):
         return self._transmit_pin
+
+    @property
+    def application_prefix(self):
+        return self._application_prefix

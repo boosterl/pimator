@@ -18,7 +18,7 @@
       <td>{{ outlet }}</td>
       {% for state in codes[outlet] %}
       <td>
-        <form action="/outlet/{{ outlet }}/{{ state }}" method="post">
+        <form action="{{ application_prefix }}/outlet/{{ outlet }}/{{ state }}" method="post">
               <input type="submit" value="{{ state.capitalize() }}" />
         </form>
       </td>
@@ -28,7 +28,7 @@
     <tr>
       <td></td>
       <td>
-        <form action="/outlet/all/on" method="post">
+        <form action="{{ application_prefix }}/outlet/all/on" method="post">
               <input type="submit" value="All On" />
         </form>
       </td>
@@ -36,7 +36,7 @@
     <tr>
       <td></td>
       <td>
-        <form action="/outlet/all/off" method="post">
+        <form action="{{ application_prefix }}/outlet/all/off" method="post">
               <input type="submit" value="All Off" />
         </form>
       </td>

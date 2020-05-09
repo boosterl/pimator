@@ -40,6 +40,7 @@ Pimator uses a JSON file called ```config.json``` as its config file. An example
 	"extended_delay" : 0.013257,
 	"attempts" : 15,
 	"transmit_pin" : 23,
+  "application_prefix" : "",
 	"codes" : {
 	    "1":
 	    {

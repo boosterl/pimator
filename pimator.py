@@ -10,19 +10,19 @@ transmitter = Transmitter(config)
 
 @app.route('/')
 def index_pimator():
-    return render_template('index.html', codes=config.codes)
+    return render_template('index.html', codes=config.codes, application_prefix=config.application_prefix)
 
 
 @app.route('/outlet/<string:outlet>/<string:state>', methods=['POST'])
 def apply_state_to_one_outlet(outlet, state):
     transmitter.apply_state_to_one_outlet(outlet, state)
-    return redirect('/', code=302)
+    return redirect(config.application_prefix, code=302)
 
 
 @app.route('/outlet/all/<string:state>', methods=['POST'])
 def apply_state_to_all_outlets(state):
     transmitter.apply_state_to_all_outlets(state)
-    return redirect('/', code=302)
+    return redirect(config.application_prefix, code=302)
 
 
 # if __name__ == "__main__":
